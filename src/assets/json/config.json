@@ -1,0 +1,12 @@
+{
+    "navbar": {
+        "brandImageUrl": "assets/icons/currency-exchange.svg"
+    },
+    "description": {
+        "heading": "Currency Convertor",
+        "subHeading": "It helps you to check live currency exchange rates"
+    },
+    "convertor": {
+        "exchangeImageUrl": "assets/icons/exchange.svg"
+    }
+}

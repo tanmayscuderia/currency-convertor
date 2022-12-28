@@ -1,0 +1,32 @@
+<div class="container-fluid convert">
+    <form [formGroup]="convertorForm" (ngSubmit)="convertCurrency()">
+        <div class="convert-form" >
+            <div class="convert-form-amount">
+                <label for="amount" class="form-label">Amount</label>
+                <input type="text" class="form-control" id="amount" formControlName="amount" />
+            </div>
+            <div class="convert-form-from">
+                <label for="from" class="form-label">From</label>
+                <select class="form-select" formControlName="from" aria-label="Select from currency">
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <button class="convert-form-reverse" (click)="exchangeCurrency()">
+                <img src="{{config.exchangeImageUrl}}" alt="Reverse Exchange">
+            </button>
+            <div class="convert-form-to">
+                <label for="to" class="form-label">To</label>
+                <select class="form-select" formControlName="to" aria-label="Select to currency">
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
+        <div class="convert-button">
+            <button type="submit" class="btn btn-primary">Convert</button>
+        </div>
+    </form>
+</div>

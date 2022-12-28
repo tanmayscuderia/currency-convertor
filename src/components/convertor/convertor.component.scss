@@ -1,0 +1,62 @@
+@import "../styles/variables.scss";
+
+.convert {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    &-form {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: space-between;
+
+        div {
+            width: 100%;
+            column-gap: 20px;
+        }
+
+        &-reverse {
+            background: inherit;
+            border-radius: $border-radius-fifty-percent;
+            border: $border-size-one solid $border-exchange-color;
+
+            img {
+                height: 36px;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        &-form {
+            flex-direction: column;
+            width: 100%;
+
+            &-reverse {
+                transform: rotate($rotate-ninety-deg) translate(0px, 0px);
+                transition: all $transition-time-point-two $transition-timing-function;
+            }
+        }
+
+        &-button {
+            button {
+                width: 100%;
+            }
+        }
+    }
+
+    @media (min-width: 769px) {
+        &-form {
+            &-reverse {
+                margin-top: 30px;
+            }
+        }
+    }
+
+    &-button {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: $margin-twelve;
+    }
+}

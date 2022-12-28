@@ -1,0 +1,77 @@
+@import "../styles/variables.scss";
+
+.navbar {
+    background: $color-blue-tinge;
+    color: $color-white;
+    position: sticky;
+    width: 100%;
+
+    .nav-link {
+        color: $color-white;
+    }
+
+    &-brand {
+        img {
+            color: white!important;
+            fill: white!important;
+        }
+    }
+    &-toggler {
+        border: 0;
+
+        .icon-bar {
+            background-color: $color-white;
+            border-radius: $border-one;
+            display: block;
+            height: $height-two;
+            transform: rotate($rotate-zero-deg) translate(0px, 0px);
+            transition: $transition-timing-function $transition-time-point-two;
+            width: $width-twenty-two;
+        }
+
+        .icon-bar+.icon-bar {
+            margin-top: $margin-five;
+        }
+
+        .top-bar {
+            transform: rotate(0);
+        }
+
+        .middle-bar {
+            opacity: $opacity-one;
+        }
+
+        .bottom-bar {
+            transform: rotate($rotate-zero-deg);
+        }
+
+        &.show {
+            .top-bar {
+                transform: rotate($rotate-forty-five-deg);
+                transform-origin: $transform-ten-percent $transform-ten-percent;
+            }
+
+            .middle-bar {
+                opacity: 0;
+            }
+
+            .bottom-bar {
+                transform: rotate(-$rotate-forty-five-deg);
+                transform-origin: $transform-zero-percent $transform-fifty-percent;
+            }
+
+        }
+    }
+
+    &-collapse {
+        justify-content: end;
+            
+        &.show {
+            
+            .nav-item {
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+}

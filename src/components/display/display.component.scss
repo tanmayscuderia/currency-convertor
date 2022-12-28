@@ -1,0 +1,18 @@
+@import "../styles/variables.scss";
+
+.convertor-card {
+    box-shadow: $box-shadow-default $box-shadow-size-zero $box-shadow-size-six $box-shadow-size-twelve;
+    border-radius: $border-eight;
+    margin: $margin-hundred $margin-five-percent;
+}
+
+.description-card {
+    // margin: $margin-hundred $margin-five-percent;
+    align-items: center;
+    border-radius: 0;
+    background: $color-blue-tinge;
+    color: $color-white;
+    display: flex;
+    height: 300px;
+    justify-content: center;
+}

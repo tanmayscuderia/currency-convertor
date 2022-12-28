@@ -1,0 +1,9 @@
+<app-header [setConfig]="configData.navbar"></app-header>
+
+<div class="card description-card">
+    <app-description [setConfig]="configData.description"></app-description>
+</div>
+<div class="card convertor-card">
+    <app-convertor [setConfig]="configData.convertor"
+     [formValues]="convertorForm" (convertTrigger)="convertCurrency()"></app-convertor>
+</div>

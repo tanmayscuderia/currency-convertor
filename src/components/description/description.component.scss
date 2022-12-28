@@ -1,0 +1,8 @@
+@import "../styles/variables.scss";
+
+.description-heading, .description-subheading {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 $margin-twenty;
+}
