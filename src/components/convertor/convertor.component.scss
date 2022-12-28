@@ -54,6 +54,14 @@
         }
     }
 
+    &-final-value {
+        margin-top: $margin-twelve;
+
+        span {
+            font-size: $font-size-eighteen;
+        }
+    }
+
     &-button {
         display: flex;
         justify-content: flex-end;

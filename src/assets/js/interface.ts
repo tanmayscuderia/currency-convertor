@@ -29,7 +29,7 @@ export declare interface CurrencyServiceInterface {
 }
 
 // Symbols list from fixer api interface
-export declare interface SymbolsInterface {
+export declare interface DynamicKeyStringValueInterface {
   [key: string]: string;
 }
 

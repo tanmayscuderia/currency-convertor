@@ -7,7 +7,9 @@
 </div>
 <div class="card convertor-card">
     <app-convertor [setConfig]="configData.convertor"
-     [formValues]="convertorForm" [setSymbols]="symbols"
+     [setFormValues]="convertorForm"
+     [setSymbols]="symbols"
+     [setConvertedValue]="setConvertedValue"
      (convertTrigger)="convertCurrency()"
     ></app-convertor>
 </div>

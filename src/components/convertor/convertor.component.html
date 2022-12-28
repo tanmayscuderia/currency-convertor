@@ -25,6 +25,9 @@
                 </select>
             </div>
         </div>
+        <div class="convert-final-value">
+            <span>{{convertorForm.value['amount']}} {{symbols.get(convertorForm.value['from'])}} = {{convertedValue}} {{symbols.get(convertorForm.value['to'])}}</span>
+        </div>
         <div class="convert-button">
             <button type="submit" class="btn btn-primary">Convert</button>
         </div>

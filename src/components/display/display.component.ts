@@ -1,6 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import data from '../../assets/json/config.json';
-import { ConfigInterface, SymbolsInterface } from '../../assets/js/interface';
+import { ConfigInterface, DynamicKeyStringValueInterface } from '../../assets/js/interface';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CurrencyService } from '../../services/currency.service';
 
@@ -11,44 +11,51 @@ import { CurrencyService } from '../../services/currency.service';
   providers: [CurrencyService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DisplayComponent {
+export class DisplayComponent implements OnInit {
   symbols!: Map<string, string>;
+  currencyRates!: DynamicKeyStringValueInterface;
 
-  constructor(private currencyService: CurrencyService) {
-    this.currencyServices();
+  constructor(private currencyService: CurrencyService) {}
+
+  ngOnInit(): void {
+    this.currencyServices();      
   }
-
   configData: ConfigInterface = JSON.parse(JSON.stringify(data));
-
+  
+  // Convertor component form group initialsion and current value.
   convertorForm = new FormGroup({
     amount: new FormControl('1', [Validators.required, Validators.pattern("^[0-9]*$")]),
     from: new FormControl('USD'),
     to: new FormControl('GBP')
   });
+
+  setConvertedValue: number = 0;
   
+  /**
+   * Converts the amount from one currency to another 
+   */
   convertCurrency() {
     console.log('c', this.convertorForm.value);
+    console.log('rates', this.currencyRates);
+
+    const ratio = Number(Number(this.currencyRates[this.convertorForm.value['to']??''])/Number(this.currencyRates[this.convertorForm.value['from']??'']));
+    console.log('ratio', ratio);
+
+    this.setConvertedValue = Number(Number(this.convertorForm.value['amount']) * ratio);
   }
 
   /**
    * Gets the various currency data either from hitting the api or cached in local storage.
    */
   currencyServices() {
-    console.log('hi', localStorage.getItem('latestService'));
+    this.symbolsService();
+    this.latestValueService();
+  }
 
-    // if (localStorage.getItem('latestService') === null) {
-    //   this.currencyService.latestService('symbols', 'USD').subscribe((response) => {
-    //     const responeJSON = JSON.stringify(response);
-    //     console.log('response', response);
-    //     console.log('response json', responeJSON);
-    //     localStorage.setItem('latestService', responeJSON);
-    //   },
-    //     (error) => {
-    //       console.log('Request failed error message', error);
-    //     }
-    //   );
-    // }
-
+  /**
+    * It calls the symbols service or gets the symbols from local storage.
+ */
+  symbolsService() {
     if (localStorage.getItem('symbols') === null) {
       this.currencyService.getAllSymbols().subscribe((response) => {
         if (response.success) {
@@ -65,11 +72,34 @@ export class DisplayComponent {
   }
 
   /**
+    * It calls the latest value service or gets the latest value from local storage.
+ */
+  latestValueService() {
+    if (localStorage.getItem('latestService') === null) {
+      this.currencyService.latestService('USD').subscribe((response) => {
+        this.currencyRates = response.rates;
+        const responeJSON = JSON.stringify(response);
+        console.log('response', response);
+        console.log('response json', responeJSON);
+        localStorage.setItem('latestService', responeJSON);
+      },
+        (error) => {
+          console.log('Request failed error message', error);
+        }
+      );
+    } else {
+      const latestValues = JSON.parse(localStorage.getItem('latestService') ?? '');
+      this.currencyRates = latestValues.rates;
+      console.log('latest', latestValues);
+    }
+  }
+
+  /**
    * 
    * @param symbols - The symbols list comes in the form of an object.
    * @returns - It returns with the currency symbol as key and deescription as value.
    */
-  convertSymbolsIntoMap(symbols?: SymbolsInterface): Map<string, string> {
+  convertSymbolsIntoMap(symbols?: DynamicKeyStringValueInterface): Map<string, string> {
     return new Map(Object.entries(symbols??''));
   }
 

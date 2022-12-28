@@ -13,18 +13,24 @@ export class HeaderComponent {
 
   @Input() set setConfig(config: NavbarConfigInterface | undefined) {
     this.config = config as NavbarConfigInterface;
-    console.log('header', this.config);
   }
 
   @Output() convertCurrencyOption: EventEmitter<string> = new EventEmitter<string>();
 
+  /**
+   * 
+   * @param currencyKeys - It sends the from and to currency keys
+   *  to be set to perform the currency conversion.
+   */
   conversionOptionClicked(currencyKeys?: string) {
     this.convertCurrencyOption.emit(currencyKeys);
-    console.log('home clicked', currencyKeys);
   }
 
+  /**
+   * Opens or closes navbar in mobile mode. It gets triggered on clicking
+   * the hamburger or cross button.
+   */
   toggleNavbar() {
-    console.log('toggle menu clicked');
     this.navbarOpen = !this.navbarOpen;
   }
 }

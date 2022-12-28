@@ -12,12 +12,13 @@ export class ConvertorComponent {
   convertorForm!: FormGroup;
   config!: ConvertorConfigInterface;
   symbols!: Map<string, string>;
+  convertedValue: number = 1;
 
   @Input() set setConfig(config: ConvertorConfigInterface | undefined) {
     this.config = config as ConvertorConfigInterface;
   }
 
-  @Input() set formValues(formValues: FormGroup) {
+  @Input() set setFormValues(formValues: FormGroup) {
     this.convertorForm = formValues;
   }
 
@@ -25,6 +26,10 @@ export class ConvertorComponent {
     this.symbols = symbols as Map<string, string>;
   }
 
+  @Input() set setConvertedValue(convertedValue: number) {
+    this.convertedValue = convertedValue;
+  }
+  
   @Output() convertTrigger: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   /**
