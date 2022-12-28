@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { NavbarConfigInterface } from '../../assets/js/interface';
 
 @Component({
@@ -13,10 +13,14 @@ export class HeaderComponent {
 
   @Input() set setConfig(config: NavbarConfigInterface | undefined) {
     this.config = config as NavbarConfigInterface;
+    console.log('header', this.config);
   }
 
-  homeClicked() {
-    console.log('home clicked');
+  @Output() convertCurrencyOption: EventEmitter<string> = new EventEmitter<string>();
+
+  conversionOptionClicked(currencyKeys?: string) {
+    this.convertCurrencyOption.emit(currencyKeys);
+    console.log('home clicked', currencyKeys);
   }
 
   toggleNavbar() {

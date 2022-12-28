@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { ConvertorConfigInterface } from '../../assets/js/interface';
 
 @Component({
@@ -11,6 +11,7 @@ import { ConvertorConfigInterface } from '../../assets/js/interface';
 export class ConvertorComponent {
   convertorForm!: FormGroup;
   config!: ConvertorConfigInterface;
+  symbols!: Map<string, string>;
 
   @Input() set setConfig(config: ConvertorConfigInterface | undefined) {
     this.config = config as ConvertorConfigInterface;
@@ -20,13 +21,16 @@ export class ConvertorComponent {
     this.convertorForm = formValues;
   }
 
+  @Input() set setSymbols(symbols: Map<string, string> | undefined) {
+    this.symbols = symbols as Map<string, string>;
+  }
+
   @Output() convertTrigger: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   /**
    * Convert the currency from the from one to tht to one.
    */
   convertCurrency() {
-    console.log('save button clicked');
     this.convertTrigger.emit();
   }
 
@@ -39,3 +43,4 @@ export class ConvertorComponent {
     this.convertorForm.controls['to'].setValue(fromValue);
   }
 }
+ 

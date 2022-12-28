@@ -1,4 +1,4 @@
-<div class="container-fluid convert">
+<div class="container-fluid convert" *ngIf="symbols">
     <form [formGroup]="convertorForm" (ngSubmit)="convertCurrency()">
         <div class="convert-form" >
             <div class="convert-form-amount">
@@ -8,9 +8,9 @@
             <div class="convert-form-from">
                 <label for="from" class="form-label">From</label>
                 <select class="form-select" formControlName="from" aria-label="Select from currency">
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                  <ng-container *ngFor="let symbol of symbols | keyvalue">
+                    <option [value]="symbol.key">{{symbol.value}}</option>
+                  </ng-container>
                 </select>
             </div>
             <button class="convert-form-reverse" (click)="exchangeCurrency()">
@@ -19,9 +19,9 @@
             <div class="convert-form-to">
                 <label for="to" class="form-label">To</label>
                 <select class="form-select" formControlName="to" aria-label="Select to currency">
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <ng-container *ngFor="let symbol of symbols | keyvalue">
+                        <option [value]="symbol.key">{{symbol.value}}</option>
+                      </ng-container>
                 </select>
             </div>
         </div>

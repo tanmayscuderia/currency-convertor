@@ -1,6 +1,14 @@
 {
     "navbar": {
-        "brandImageUrl": "assets/icons/currency-exchange.svg"
+        "brandImageUrl": "assets/icons/currency-exchange.svg",
+        "conversionOptions": [{
+            "label":"EUR-USD Details",
+            "keys":"EUR,USD"
+        },
+        {
+            "label":"EUR-GBP Details",
+            "keys":"EUR,GBP"
+        }]
     },
     "description": {
         "heading": "Currency Convertor",
@@ -8,5 +16,8 @@
     },
     "convertor": {
         "exchangeImageUrl": "assets/icons/exchange.svg"
+    },
+    "currencyService": {
+        "baseUrl": "https://api.apilayer.com/fixer/"
     }
 }

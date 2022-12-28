@@ -4,6 +4,7 @@ import { DisplayComponent } from './display.component';
 import { HeaderComponent } from '../header/header.component';
 import { DescriptionComponentModule } from '../description/description.module';
 import { ConvertorComponentModule } from '../convertor/convertor.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -14,7 +15,8 @@ import { ConvertorComponentModule } from '../convertor/convertor.module';
         CommonModule,
         ConvertorComponentModule,
         DescriptionComponentModule,
-        ConvertorComponentModule
+        ConvertorComponentModule,
+        HttpClientModule
     ],
     exports: [DisplayComponent],
 })
