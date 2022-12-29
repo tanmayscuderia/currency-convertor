@@ -5,7 +5,7 @@ import { HeaderComponent } from '../header/header.component';
 import { DescriptionComponentModule } from '../description/description.module';
 import { ConvertorComponentModule } from '../convertor/convertor.module';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ChosenCurrenciesConvertedGridModule } from '../chosen-currencies-converted-grid/chosen-currencies-converted-grid.module';
 @NgModule({
     declarations: [
         DisplayComponent,
@@ -16,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
         ConvertorComponentModule,
         DescriptionComponentModule,
         ConvertorComponentModule,
-        HttpClientModule
+        HttpClientModule,
+        ChosenCurrenciesConvertedGridModule
     ],
     exports: [DisplayComponent],
 })

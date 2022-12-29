@@ -1,0 +1,21 @@
+@import "../styles/variables.scss";
+
+.currencies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: $margin-thirty;
+    
+    @media (max-width: 750px) {
+        gap: $margin-twenty;       
+    }
+
+    &-card-container {
+        align-items: center;
+        box-shadow: $box-shadow-default $box-shadow-size-zero $box-shadow-size-six $box-shadow-size-twelve;
+        display: flex;
+        height: 100px;
+        justify-content: center;
+        width: 280px;
+    }
+}

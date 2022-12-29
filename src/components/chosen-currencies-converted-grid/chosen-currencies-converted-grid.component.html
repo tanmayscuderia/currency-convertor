@@ -1,0 +1,7 @@
+<div class="currencies">
+    <div *ngFor="let option of config.selectedCurrencies">
+        <div class="card currencies-card-container">
+           1 {{fromCurrency(option)}} = {{convertedValue(option) | currency:toCurrency(option):config.showCurrencySignInConvertedStatement:config.decimalPlacesInConvertedStatement }} {{toCurrency(option)}}
+        </div>
+    </div>
+</div>

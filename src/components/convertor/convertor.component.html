@@ -26,7 +26,10 @@
             </div>
         </div>
         <div class="convert-final-value">
-            <span>{{convertorForm.value['amount']}} {{symbols.get(convertorForm.value['from'])}} = {{convertedValue}} {{symbols.get(convertorForm.value['to'])}}</span>
+            <span>{{convertorForm.value['amount'] | currency:convertorForm.value['from']:showCurrencySignInConvertedStatement:decimalPlacesInConvertedStatement }}
+                 {{symbols.get(convertorForm.value['from'])}} =
+                  {{convertedValue | currency:convertorForm.value['to']:showCurrencySignInConvertedStatement:decimalPlacesInConvertedStatement }}
+                   {{symbols.get(convertorForm.value['to'])}}</span>
         </div>
         <div class="convert-button">
             <button type="submit" class="btn btn-primary">Convert</button>

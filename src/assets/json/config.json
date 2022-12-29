@@ -15,9 +15,26 @@
         "subHeading": "It helps you to check live currency exchange rates"
     },
     "convertor": {
-        "exchangeImageUrl": "assets/icons/exchange.svg"
+        "exchangeImageUrl": "assets/icons/exchange.svg",
+        "showCurrencySignInConvertedStatement": true,
+        "decimalPlacesInConvertedStatement": ".2"
     },
     "currencyService": {
         "baseUrl": "https://api.apilayer.com/fixer/"
-    }
+    },
+    "chosenCurrenciesGrid": {
+        "selectedCurrencies" :[
+        "EUR-USD",
+        "EUR-GBP",
+        "EUR-INR",
+        "EUR-AED",
+        "USD-INR",
+        "USD-GBP",
+        "USD-AED",
+        "GBP-INR",
+        "AED-INR"
+    ],
+    "showCurrencySignInConvertedStatement": true,
+        "decimalPlacesInConvertedStatement": ".2"
+  }
 }

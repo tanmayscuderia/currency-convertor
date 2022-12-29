@@ -14,8 +14,14 @@ export class ConvertorComponent {
   symbols!: Map<string, string>;
   convertedValue: number = 1;
 
+  showCurrencySignInConvertedStatement = true;
+  decimalPlacesInConvertedStatement = '.2';
+
   @Input() set setConfig(config: ConvertorConfigInterface | undefined) {
     this.config = config as ConvertorConfigInterface;
+
+    this.showCurrencySignInConvertedStatement = config?.showCurrencySignInConvertedStatement ?? true;
+    this.decimalPlacesInConvertedStatement = config?.decimalPlacesInConvertedStatement ?? '.2';
   }
 
   @Input() set setFormValues(formValues: FormGroup) {
@@ -29,7 +35,7 @@ export class ConvertorComponent {
   @Input() set setConvertedValue(convertedValue: number) {
     this.convertedValue = convertedValue;
   }
-  
+
   @Output() convertTrigger: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   /**

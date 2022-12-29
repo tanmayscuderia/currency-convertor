@@ -3,6 +3,7 @@ import data from '../../assets/json/config.json';
 import { ConfigInterface, DynamicKeyStringValueInterface } from '../../assets/js/interface';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CurrencyService } from '../../services/currency.service';
+import { getConvertedValue } from '../../shared/util';
 
 @Component({
   selector: 'app-display',
@@ -37,11 +38,7 @@ export class DisplayComponent implements OnInit {
   convertCurrency() {
     console.log('c', this.convertorForm.value);
     console.log('rates', this.currencyRates);
-
-    const ratio = Number(Number(this.currencyRates[this.convertorForm.value['to']??''])/Number(this.currencyRates[this.convertorForm.value['from']??'']));
-    console.log('ratio', ratio);
-
-    this.setConvertedValue = Number(Number(this.convertorForm.value['amount']) * ratio);
+    this.setConvertedValue = getConvertedValue(this.currencyRates, this.convertorForm.value['from']??'', this.convertorForm.value['to']??'', this.convertorForm.value['amount']??'');
   }
 
   /**

@@ -5,11 +5,19 @@
 <div class="card description-card">
     <app-description [setConfig]="configData.description"></app-description>
 </div>
-<div class="card convertor-card">
-    <app-convertor [setConfig]="configData.convertor"
+<div class="container card convertor-card">
+    <app-convertor
+     [setConfig]="configData.convertor"
      [setFormValues]="convertorForm"
      [setSymbols]="symbols"
      [setConvertedValue]="setConvertedValue"
      (convertTrigger)="convertCurrency()"
     ></app-convertor>
+</div>
+
+<div class="container">
+    <app-chosen-currencies-converted-grid
+     [setConfig]="configData.chosenCurrenciesGrid"
+     [setCurrencyRates]="currencyRates"
+    ></app-chosen-currencies-converted-grid>
 </div>

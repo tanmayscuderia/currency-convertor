@@ -4,6 +4,7 @@ export declare interface ConfigInterface {
   convertor?: ConvertorConfigInterface;
   navbar?: NavbarConfigInterface;
   currencyService?: CurrencyServiceInterface;
+  chosenCurrenciesGrid?: ConversionOptionsInterface;
 }
 
 // Interface for Description Component Config
@@ -15,6 +16,8 @@ export declare interface DescriptionConfigInterface {
 // Interface for Convertor Component Config
 export declare interface ConvertorConfigInterface {
   exchangeImageUrl?: string;
+  showCurrencySignInConvertedStatement?: boolean;
+  decimalPlacesInConvertedStatement?: string;
 }
 
 // Interface for Navbar Component Config
@@ -37,4 +40,11 @@ export declare interface DynamicKeyStringValueInterface {
 export declare interface ConversionOptionsInterface {
   label?: string;
   keys?: string;
+}
+
+// Interface for Chosen Currecnies Grid
+export declare interface ConversionOptionsInterface {
+  selectedCurrencies?: string[];
+  showCurrencySignInConvertedStatement?: boolean;
+  decimalPlacesInConvertedStatement?: string;
 }
