@@ -21,6 +21,7 @@ export class DisplayComponent implements OnInit {
   ngOnInit(): void {
     this.currencyServices();      
   }
+  
   configData: ConfigInterface = JSON.parse(JSON.stringify(data));
   
   // Convertor component form group initialsion and current value.
@@ -109,6 +110,7 @@ export class DisplayComponent implements OnInit {
     if(options) {
       this.convertorForm.controls['from'].setValue(optionValues[0]);
       this.convertorForm.controls['to'].setValue(optionValues[1]);
+      this.convertCurrency();
     }
   }
 }
