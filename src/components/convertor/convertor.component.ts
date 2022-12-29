@@ -30,13 +30,15 @@ export class ConvertorComponent {
 
   @Input() set setSymbols(symbols: Map<string, string> | undefined) {
     this.symbols = symbols as Map<string, string>;
+    console.log('s', this.symbols);
   }
 
   @Input() set setConvertedValue(convertedValue: number) {
+    console.log('convertedValue', convertedValue);
     this.convertedValue = convertedValue;
   }
 
-  @Output() convertTrigger: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() convertTrigger: EventEmitter<void> = new EventEmitter<void>();
 
   /**
    * Convert the currency from the from one to tht to one.

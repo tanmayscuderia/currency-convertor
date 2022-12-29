@@ -1,4 +1,4 @@
-import { ComponentFixture, flush, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavbarConfigInterface } from '../../assets/js/interface';
 import { HeaderComponent } from './header.component';
 import { By } from '@angular/platform-browser';
@@ -27,7 +27,7 @@ describe('HeaderComponent', () => {
     expect(component.config).toBe(MOCK_CONFIG_DATA);
   });
 
-  it('navbarOPen value should change on toggling the navbar hamburger', () => {
+  it('navbarOpen value should change on toggling the navbar hamburger', () => {
     expect(component.navbarOpen).toBe(false);
 
     component.toggleNavbar();
