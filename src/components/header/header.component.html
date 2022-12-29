@@ -13,9 +13,9 @@
       <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }"
           id="navbarSupportedContent" *ngIf="config && config.conversionOptions">
           <ng-container *ngFor="let option of config.conversionOptions">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" (click)="conversionOptionClicked(option.keys)">
               <li class="nav-item">
-                <span class="nav-link active" aria-current="page" (click)="conversionOptionClicked(option.keys)">{{option.label}}</span>
+                <span class="nav-link active" aria-current="page">{{option.label}}</span>
               </li>
             </ul>
           </ng-container>

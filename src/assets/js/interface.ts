@@ -33,7 +33,7 @@ export declare interface CurrencyServiceInterface {
 
 // Symbols list from fixer api interface
 export declare interface DynamicKeyStringValueInterface {
-  [key: string]: string;
+  [key: string]: number;
 }
 
 // Conversion options Interface for navbar
