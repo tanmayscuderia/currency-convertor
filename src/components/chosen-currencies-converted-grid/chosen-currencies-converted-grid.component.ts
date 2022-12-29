@@ -17,19 +17,30 @@ export class ChosenCurrenciesConvertedGridComponent {
 
   @Input() set setCurrencyRates(currencyRates: DynamicKeyStringValueInterface) {
     this.currencyRates = currencyRates;
-    console.log('currencyRates', this.currencyRates);
   }
  
+  /**
+   * @param option - currencies as input
+   * @returns return from currency
+   */
   fromCurrency(option: string) {
     const currencies = option.split('-');
     return currencies[0];
   }
 
+  /**
+   * @param option - currencies as input
+   * @returns return to currency
+   */
   toCurrency(option: string) {
     const currencies = option.split('-');
     return currencies[1];
   }
 
+  /**
+   * @param option - currencies as input
+   * @returns returns converted value
+   */
   convertedValue(option: string) {
     const currencies = option.split('-');
     return getConvertedValue(this.currencyRates, currencies[0]??'', currencies[1]??'', '1');

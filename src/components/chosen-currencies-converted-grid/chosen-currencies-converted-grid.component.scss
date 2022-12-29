@@ -10,11 +10,15 @@
         gap: $margin-twenty;       
     }
 
+    &-container:last-child  {
+        margin-bottom: $margin-hundred;
+    }
+
     &-card-container {
         align-items: center;
         box-shadow: $box-shadow-default $box-shadow-size-zero $box-shadow-size-six $box-shadow-size-twelve;
         display: flex;
-        height: 100px;
+        height: $height-hundred;
         justify-content: center;
         width: 280px;
     }

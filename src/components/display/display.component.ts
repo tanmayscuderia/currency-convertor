@@ -36,8 +36,6 @@ export class DisplayComponent implements OnInit {
    * Converts the amount from one currency to another 
    */
   convertCurrency() {
-    console.log('c', this.convertorForm.value);
-    console.log('rates', this.currencyRates);
     this.setConvertedValue = getConvertedValue(this.currencyRates, this.convertorForm.value['from']??'', this.convertorForm.value['to']??'', this.convertorForm.value['amount']??'');
   }
 

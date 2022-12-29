@@ -32,7 +32,7 @@
                    {{symbols.get(convertorForm.value['to'])}}</span>
         </div>
         <div class="convert-button">
-            <button type="submit" class="btn btn-primary">Convert</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!convertorForm.valid">Convert</button>
         </div>
     </form>
 </div>
