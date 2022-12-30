@@ -4,7 +4,9 @@
     background: $color-blue-tinge;
     color: $color-white;
     position: sticky;
+    top: 0;
     width: 100%;
+    z-index: 99999;
 
     .nav-link {
         color: $color-white;
@@ -12,7 +14,6 @@
 
     &-brand {
         img {
-            color: white!important;
             fill: white!important;
         }
     }

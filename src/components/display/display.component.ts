@@ -64,6 +64,7 @@ export class DisplayComponent implements OnInit {
     } else {
       const getSymbols = JSON.parse(localStorage.getItem('symbols') ?? '');
       this.symbols =  this.convertSymbolsIntoMap(getSymbols.symbols);
+      console.log('symbols', this.symbols);
     }
   }
 
@@ -75,8 +76,6 @@ export class DisplayComponent implements OnInit {
       this.currencyService.latestService('USD').subscribe((response) => {
         this.currencyRates = response.rates;
         const responeJSON = JSON.stringify(response);
-        console.log('response', response);
-        console.log('response json', responeJSON);
         localStorage.setItem('latestService', responeJSON);
       },
         (error) => {
@@ -86,14 +85,13 @@ export class DisplayComponent implements OnInit {
     } else {
       const latestValues = JSON.parse(localStorage.getItem('latestService') ?? '');
       this.currencyRates = latestValues.rates;
-      console.log('latest', latestValues);
     }
   }
 
   /**
    * 
    * @param symbols - The symbols list comes in the form of an object.
-   * @returns - It returns with the currency symbol as key and deescription as value.
+   * @returns - It returns with the currency symbol as key and description as value.
    */
   convertSymbolsIntoMap(symbols?: DynamicKeyStringValueInterface): Map<string, string> {
     return new Map(Object.entries(symbols??''));

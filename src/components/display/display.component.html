@@ -1,12 +1,18 @@
-<app-header [setConfig]="configData.navbar"
- (convertCurrencyOption)="setConvertOptionFromNavber($event)">
-</app-header>
+<app-header
+*ngIf="configData.navbar"
+ [setConfig]="configData.navbar"
+ (convertCurrencyOption)="setConvertOptionFromNavber($event)"
+ ></app-header>
 
 <div class="card description-card">
-    <app-description [setConfig]="configData.description"></app-description>
+    <app-description
+    *ngIf="configData.description"
+     [setConfig]="configData.description"
+     ></app-description>
 </div>
 <div class="container card convertor-card">
     <app-convertor
+     *ngIf="configData.convertor"
      [setConfig]="configData.convertor"
      [setFormValues]="convertorForm"
      [setSymbols]="symbols"
@@ -17,6 +23,7 @@
 
 <div class="container">
     <app-chosen-currencies-converted-grid
+    *ngIf="configData.chosenCurrenciesGrid"
      [setConfig]="configData.chosenCurrenciesGrid"
      [setCurrencyRates]="currencyRates"
     ></app-chosen-currencies-converted-grid>
