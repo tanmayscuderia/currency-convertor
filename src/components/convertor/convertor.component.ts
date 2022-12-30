@@ -12,7 +12,7 @@ export class ConvertorComponent {
   convertorForm!: FormGroup;
   config!: ConvertorConfigInterface;
   symbols!: Map<string, string>;
-  convertedValue: number = 1;
+  convertedValue = 1;
 
   showCurrencySignInConvertedStatement = true;
   decimalPlacesInConvertedStatement = '.2';

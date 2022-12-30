@@ -12,7 +12,7 @@ export class CurrencyService {
 
   baseUrl = this.configData?.currencyService?.baseUrl ?? '-';
 
-  latestService(base:string = 'base'): Observable<any> {
+  latestService(base = 'base'): Observable<any> {
     return this.http.get(this.baseUrl +`latest?&base=${base}`);
   }
 

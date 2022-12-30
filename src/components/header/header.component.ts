@@ -8,7 +8,7 @@ import { NavbarConfigInterface } from '../../assets/js/interface';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
-  navbarOpen: boolean = false;
+  navbarOpen = false;
   config!: NavbarConfigInterface;
 
   @Input() set setConfig(config: NavbarConfigInterface | undefined) {

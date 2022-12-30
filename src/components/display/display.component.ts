@@ -31,7 +31,7 @@ export class DisplayComponent implements OnInit {
     to: new FormControl('GBP')
   });
 
-  setConvertedValue: number = 0;
+  setConvertedValue = 0;
   
   /**
    * Converts the amount from one currency to another 
@@ -102,7 +102,7 @@ export class DisplayComponent implements OnInit {
    * @param options - The symbols for from and to currency.
    * It sets the from and to currency based on the option chosen form the navbar.
    */
-  setConvertOptionFromNavber(options: any) {
+  setConvertOptionFromNavber(options: string) {
     const optionValues = options.split(',');
     
     if(options) {
