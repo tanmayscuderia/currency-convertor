@@ -24,16 +24,17 @@ export class ConvertorComponent {
     this.decimalPlacesInConvertedStatement = config?.decimalPlacesInConvertedStatement ?? '.2';
   }
 
-  @Input() set setFormValues(formValues: FormGroup) {
-    this.convertorForm = formValues;
-  }
-
   @Input() set setSymbols(symbols: Map<string, string> | undefined) {
     this.symbols = symbols as Map<string, string>;
   }
 
   @Input() set setConvertedValue(convertedValue: number) {
     this.convertedValue = convertedValue;
+  }
+
+  @Input() set setFormValues(formValues: FormGroup) {
+    this.convertorForm = formValues;
+    this.convertCurrency();
   }
 
   @Output() convertTrigger: EventEmitter<void> = new EventEmitter<void>();

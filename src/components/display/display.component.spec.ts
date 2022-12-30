@@ -59,8 +59,8 @@ describe('DisplayComponent', () => {
     });
   });
 
-  it('should set converted value by default to 0', () => {
-    expect(component.setConvertedValue).toBe(0);
+  it('should set converted value by default', () => {
+    expect(component.setConvertedValue).toBe(0.83165);
   });
 
   it('should change the value of from and to based on options given', () => {
